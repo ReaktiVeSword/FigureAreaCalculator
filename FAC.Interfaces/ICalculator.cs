@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FAC.Common.Models;
 
 namespace FAC.Interfaces
 {
     public interface ICalculator
     {
-        double CalculateCircleArea(double radius);
-        double CalculatorTriangleArea(double side1, double side2, double side3);
+        double CalculateCircleArea(Circle circle);
+        double CalculateTriangleArea(Triangle triangle);
+        double? CalculateFigureArea(Figure figure);
     }
 }

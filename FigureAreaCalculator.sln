@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureAreaCalculator", "FigureAreaCalculator\FigureAreaCalculator.csproj", "{CE3F4931-9D54-4986-A30D-A6F44BE9E42F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureAreaCalculator", "FigureAreaCalculator\FigureAreaCalculator.csproj", "{CE3F4931-9D54-4986-A30D-A6F44BE9E42F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FigureAreaCalculatorTests", "FigureAreaCalculatorTests\FigureAreaCalculatorTests.csproj", "{46FB59E6-33BF-47AC-BB39-A7423220A93D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FigureAreaCalculatorTests", "FigureAreaCalculatorTests\FigureAreaCalculatorTests.csproj", "{46FB59E6-33BF-47AC-BB39-A7423220A93D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAC.Interfaces", "FAC.Interfaces\FAC.Interfaces.csproj", "{C4EB8AA1-0156-4C73-96E2-393879B363B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FAC.Interfaces", "FAC.Interfaces\FAC.Interfaces.csproj", "{C4EB8AA1-0156-4C73-96E2-393879B363B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAC.Helper", "FAC.Helper\FAC.Helper.csproj", "{1C756750-E437-4428-AD6D-2F6E60FEC8EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FAC.Helper", "FAC.Helper\FAC.Helper.csproj", "{1C756750-E437-4428-AD6D-2F6E60FEC8EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAC.Common", "FAC.Common\FAC.Common.csproj", "{9FCEA0E8-1302-4691-B6EE-DE2FF32B2231}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1C756750-E437-4428-AD6D-2F6E60FEC8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C756750-E437-4428-AD6D-2F6E60FEC8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C756750-E437-4428-AD6D-2F6E60FEC8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FCEA0E8-1302-4691-B6EE-DE2FF32B2231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FCEA0E8-1302-4691-B6EE-DE2FF32B2231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FCEA0E8-1302-4691-B6EE-DE2FF32B2231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FCEA0E8-1302-4691-B6EE-DE2FF32B2231}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

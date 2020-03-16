@@ -1,4 +1,6 @@
-﻿using FAC.Interfaces;
+﻿using FAC.Common.Models;
+using FAC.Helper;
+using FAC.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,15 +11,43 @@ namespace FigureAreaCalculator
     {
         public readonly double PI = Math.PI;
 
-        public double CalculateCircleArea(double radius)
+        public double? CalculateFigureArea(Figure figure)
         {
-            return PI * radius * radius;
+            switch (figure)
+            {
+                case Circle c:
+                    return CalculateCircleArea(c);
+                case Triangle t:
+                    return CalculateTriangleArea(t);
+                default:
+                    return null;
+            }
         }
 
-        public double CalculatorTriangleArea(double side1, double side2, double side3)
+        public double CalculateCircleArea(Circle circle)
         {
-            var halfPerimeter = (side1 + side2 + side3) / 2;
-            return Math.Sqrt(halfPerimeter * (halfPerimeter - side1) * (halfPerimeter - side2) * (halfPerimeter - side3));
+            return PI * circle.Radius * circle.Radius;
+        }
+
+        public double CalculateTriangleArea(Triangle triangle)
+        {
+            if (TriangleHelper.IsRightTriangle(triangle))
+            {
+                var sides = TriangleHelper.GetTheLongestSide(triangle);
+                return CalculateRightTriangleArea(sides.Item1, sides.Item2);
+            }
+            return CalculateSimpleTriangleAreaByThreeSides(triangle);
+        }
+
+        private double CalculateSimpleTriangleAreaByThreeSides(Triangle triangle)
+        {
+            var halfPerimeter = (triangle.SideA + triangle.SideB + triangle.SideC) / 2;
+            return Math.Sqrt(halfPerimeter * (halfPerimeter - triangle.SideA) * (halfPerimeter - triangle.SideB) * (halfPerimeter - triangle.SideC));
+        }
+
+        private double CalculateRightTriangleArea(double side1, double side2)
+        {
+            return (side1 * side2) / 2;
         }
     }
 }
