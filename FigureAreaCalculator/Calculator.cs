@@ -1,9 +1,7 @@
-﻿using FAC.Common.Models;
-using FAC.Helper;
+﻿using FAC.Common.Extensions;
+using FAC.Common.Models;
 using FAC.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FigureAreaCalculator
 {
@@ -20,7 +18,7 @@ namespace FigureAreaCalculator
                 case Triangle t:
                     return CalculateTriangleArea(t);
                 default:
-                    return null;
+                    throw new Exception("There is no such type of figure");
             }
         }
 
@@ -31,20 +29,36 @@ namespace FigureAreaCalculator
 
         public double CalculateTriangleArea(Triangle triangle)
         {
-            if (TriangleHelper.IsRightTriangle(triangle))
+            if (!triangle.IsTriangle())
             {
-                var sides = TriangleHelper.GetTheLongestSide(triangle);
+                throw new Exception("It is not a Triangle");
+            }
+
+            if (triangle.IsRightTriangle())
+            {
+                var sides = triangle.GetShortSides();
                 return CalculateRightTriangleArea(sides.Item1, sides.Item2);
             }
             return CalculateSimpleTriangleAreaByThreeSides(triangle);
         }
 
+        /// <summary>
+        /// Calculate triangle area
+        /// </summary>
+        /// <param name="triangle"></param>
+        /// <returns></returns>
         private double CalculateSimpleTriangleAreaByThreeSides(Triangle triangle)
         {
             var halfPerimeter = (triangle.SideA + triangle.SideB + triangle.SideC) / 2;
             return Math.Sqrt(halfPerimeter * (halfPerimeter - triangle.SideA) * (halfPerimeter - triangle.SideB) * (halfPerimeter - triangle.SideC));
         }
 
+        /// <summary>
+        /// Calculate right triangle area
+        /// </summary>
+        /// <param name="side1"></param>
+        /// <param name="side2"></param>
+        /// <returns></returns>
         private double CalculateRightTriangleArea(double side1, double side2)
         {
             return (side1 * side2) / 2;

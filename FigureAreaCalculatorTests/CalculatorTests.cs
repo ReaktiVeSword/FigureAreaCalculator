@@ -2,6 +2,7 @@ using FAC.Common.Models;
 using FAC.Interfaces;
 using FigureAreaCalculator;
 using NUnit.Framework;
+using System;
 
 namespace FigureAreaCalculatorTests
 {
@@ -42,6 +43,31 @@ namespace FigureAreaCalculatorTests
         {
             var result = _calculator.CalculateFigureArea(new Triangle { SideA = 3, SideB = 4, SideC = 5 });
             Assert.AreEqual(6, result);
+        }
+
+        [Test]
+        public void CalculateTriangleArea_ThreeSidesGiven_GetException()
+        {
+            var triangle = new Triangle { SideA = 50, SideB = 4, SideC = 3 };
+            Assert.Throws(Is.TypeOf<Exception>()
+                .And
+                .Message.EqualTo("It is not a Triangle"),
+                () =>
+                {
+                    _calculator.CalculateTriangleArea(triangle);
+                });
+        }
+
+        [Test]
+        public void CalculateFigureArea_FigureGiven_GetException()
+        {
+            Assert.Throws(Is.TypeOf<Exception>()
+                .And
+                .Message.EqualTo("There is no such type of figure"),
+                () =>
+                {
+                    _calculator.CalculateFigureArea(new Figure());
+                });
         }
     }
 }

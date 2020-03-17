@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FAC.Common.Models
+﻿namespace FAC.Common.Models
 {
+    /// <summary>
+    /// Parent class of figure
+    /// </summary>
     public class Figure
     {
     }
